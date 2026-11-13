@@ -1,0 +1,7 @@
+# datasets and model weights (too big for git)
+ham10000/
+HAM10000_images_part_*/
+*.pth
+*.pt
+.ipynb_checkpoints/
+.DS_Store
