@@ -35,7 +35,7 @@ The 7 classes: melanocytic nevi, melanoma, benign keratosis, basal cell carcinom
 - **Hosting the model.** Our first approach was putting the model in the app, but the PyTorch version we trained with was too new for Android. Instead, a Flask server on a Mac runs the model and is tunneled through ngrok, so the app can reach it.
 - **The app.** Built in Android Studio. It controls the UV flashlight and a normal flashlight, captures the visible and UV photos, sends them to the model as base64, and uses Gemini 2.5 to turn the model's output into a readable response. The phone camera couldn't adjust to the light quickly enough, so we made the delay between the two photos longer.
 
-The Flask server, Android app and Arduino code aren't in this repo yet.
+The Flask server is in `server/server.py`. It takes the visible and UV photos as base64 at `POST /predict` and returns the diagnosis, its confidence and the scores for all 7 classes. The Android app and Arduino code aren't in this repo yet.
 
 ## Run it
 
@@ -46,9 +46,17 @@ pip install -r requirements.txt
 jupyter notebook notebooks/uv_detect.ipynb
 ```
 
+To run the server, put your trained `best_model.pth` in `server/` (or set `MODEL_PATH`), then:
+
+```bash
+pip install flask
+python server/server.py
+```
+
 ## Files
 
 - `notebooks/uv_detect.ipynb`: simulated UV dataset, dual-stream ResNet-18, training, evaluation and the prototypical extension
+- `server/server.py`: Flask server the app sends photos to
 - `docs/skinly-design-blog.pdf`: our design process and challenges, from the SNC2D culminating blog
 
 Built with help from AI tools.
