@@ -4,7 +4,7 @@
 
 Skin cancer dataset trained on UV. Skinly pairs a normal photo of a skin lesion with a photo under UV light, and a dual-stream CNN looks at both to sort the lesion into one of 7 types. A UV flashlight controlled by an Arduino, a box to hold the camera and light, and an Android app make up the rest of the system.
 
-Built by Shrenik Subbaiyan with his group for the Grade 10 Science (SNC2D) culminating project at A.Y. Jackson Secondary School.
+Built by Shrenik Subbaiyan and Aiden Huang for the Grade 10 Science (SNC2D) culminating project at A.Y. Jackson Secondary School.
 
 > **This is a student prototype, not a medical device.** It can't diagnose anything. See a doctor about any spot on your skin that worries you.
 
